@@ -1,0 +1,905 @@
+<title>Sightwell Studios — Brand Guideline</title>
+<meta name="description" content="The visual and verbal identity of Sightwell Studios — the colors, typography, logo usage, voice, and principles that make the brand recognizable and consistent across every touchpoint." />
+<!-- Client review build: keep out of search results. Remove this line (and robots.txt) when going public. -->
+<meta name="robots" content="noindex, nofollow" />
+<style>
+/*__FONTS__*/
+
+/* Pragmatica Extended IS available on Adobe Fonts. Add it to kit qcx2rwd
+   (weights 400/500) and it takes over automatically. Until then the labels
+   fall back to the embedded Archivo Expanded stand-in. */
+
+:root{
+  /* brand palette — values from the Sightwell x Claude Figma file */
+  --ink:#222223;
+  --cream:#fdfaf6;
+  --band:#f5efe5;
+  --amber:#e2a951;
+  --gold:#d9b97e;
+  --deep-gold:#cba764;
+  --pale-gold:#e8d6b2;
+  --terracotta:#b3593d;
+  --shade:#838588;
+
+  --ink-body:#4a4744;
+  --ink-quiet:#6f6a64;
+  --hair:rgba(34,34,35,.10);
+  --hair-soft:rgba(34,34,35,.06);
+  --cream-muted:#c8bfaa;
+  --card:#ffffff;
+  --shadow:0 1px 4px rgba(0,0,0,.06);
+
+  --serif:'freight-text-pro',Georgia,'Times New Roman',serif;
+  --sans:'pragmatica-extended','Archivo Expanded','Archivo',system-ui,-apple-system,sans-serif;
+
+  --sidebar-w:220px;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;display:flex;min-height:100vh;
+  background:var(--cream);color:var(--ink);
+  font-family:var(--serif);font-weight:300;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  /* Freight Text Pro ligature features */
+  font-variant-ligatures:common-ligatures contextual;
+  font-feature-settings:"kern" 1,"liga" 1,"clig" 1,"calt" 1;
+  font-kerning:normal;
+}
+/* display sizes also take discretionary ligatures */
+.hero h1,.section-title,.strategy-hero h2,.voice-headline,
+.ty-bigtitle,.ty-headline,.ty-headlinesm,.ty-pagetitle,.ty-subtitle,
+.ty-highlight,.ty-highlightsm,.ty-summary,.type-aa-serif{
+  font-variant-ligatures:common-ligatures discretionary-ligatures contextual;
+  font-feature-settings:"kern" 1,"liga" 1,"clig" 1,"dlig" 1,"calt" 1;
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}
+:root[data-theme="dark"],:root[data-theme="light"]{color-scheme:light;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+
+/* ============ SIDEBAR ============ */
+.sidebar{
+  width:var(--sidebar-w);min-width:var(--sidebar-w);
+  background:var(--ink);color:var(--cream);
+  display:flex;flex-direction:column;
+  padding:2rem 1.5rem;position:sticky;top:0;height:100vh;overflow-y:auto;
+}
+.sidebar-logo{width:150.4px;height:auto;color:var(--cream);margin-bottom:2.5rem;}
+.sidebar nav{display:flex;flex-direction:column;gap:.25rem;}
+.sidebar nav a{
+  font-family:var(--sans);font-size:.6rem;font-weight:400;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--cream-muted);
+  white-space:nowrap;
+  padding:.4rem 0;border-bottom:1px solid transparent;
+  transition:color .2s,border-color .2s;
+}
+.sidebar nav a:hover{color:var(--cream);}
+.sidebar nav a.active{color:var(--amber);border-bottom-color:rgba(226,169,81,.35);}
+.sidebar-foot{
+  margin-top:auto;padding-top:2rem;
+  font-family:var(--sans);font-size:.55rem;font-weight:400;
+  letter-spacing:.12em;text-transform:uppercase;color:rgba(253,250,246,.34);line-height:1.7;
+}
+
+/* ============ CONTENT ============ */
+.content{flex:1;min-width:0;}
+
+/* ---- HERO ---- */
+.hero{
+  color:var(--cream);padding:6rem 4rem 5rem;position:relative;
+  background-color:var(--ink);
+  background-image:
+    linear-gradient(90deg,
+      rgba(34,34,35,.96) 0%,
+      rgba(34,34,35,.88) 32%,
+      rgba(34,34,35,.45) 58%,
+      rgba(34,34,35,0) 88%),
+    url('assets/header.jpg');
+  background-size:cover;
+  background-position:center right;
+  background-repeat:no-repeat;
+}
+.hero-label{font-family:var(--sans);font-size:.65rem;font-weight:400;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;}
+.hero h1{
+  font-family:var(--serif);font-size:clamp(2.5rem,5vw,4rem);font-weight:300;
+  line-height:1.1;max-width:620px;margin:0 0 2rem;text-wrap:balance;
+}
+.hero h1 em{font-style:italic;color:var(--amber);}
+.hero p{font-size:.95rem;line-height:1.8;color:var(--cream-muted);max-width:520px;margin:0 0 2.5rem;}
+.viewas{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.viewas .vl{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(253,250,246,.42);}
+.toggle{display:inline-flex;border:1px solid rgba(253,250,246,.16);border-radius:4px;overflow:hidden;}
+.toggle button{
+  font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.1rem;
+  background:transparent;border:none;color:var(--cream-muted);cursor:pointer;transition:background .2s,color .2s;
+}
+.toggle button svg{width:13px;height:13px;}
+.toggle button.on{background:var(--cream);color:var(--ink);}
+.toggle button .md{font-size:.55rem;padding:.15rem .4rem;border-radius:2px;background:var(--gold);color:var(--ink);}
+.toggle button.on .md{background:var(--ink);color:var(--gold);}
+.hero-note{font-family:var(--sans);font-size:.62rem;line-height:1.8;color:rgba(253,250,246,.42);max-width:420px;margin:0 0 2.5rem;}
+.hero-divider{width:100%;height:1px;background:linear-gradient(to right,var(--gold) 0%,transparent 100%);opacity:.4;}
+
+/* ---- SECTIONS ---- */
+.section{padding:5rem 4rem;border-bottom:1px solid var(--hair);background:var(--cream);}
+.section:nth-of-type(even){background:var(--band);}
+.section-number{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--deep-gold);margin-bottom:.5rem;}
+.section-title{font-family:var(--serif);font-size:2rem;font-weight:400;margin:0 0 1rem;letter-spacing:-.01em;}
+.section-desc{font-size:.9rem;line-height:1.8;color:var(--ink-body);max-width:560px;margin:0 0 3rem;}
+.sub-label{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--shade);margin:0 0 1.25rem;}
+
+/* ---- 01 COLORS ---- */
+/* 8 swatches: balanced rows at every width, single row when the window is wide */
+.color-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;}
+@media (min-width:560px){.color-grid{grid-template-columns:repeat(4,1fr);}}
+@media (min-width:1500px){.color-grid{grid-template-columns:repeat(8,1fr);}}
+.color-swatch{border-radius:4px;overflow:hidden;box-shadow:var(--shadow);background:var(--card);}
+.swatch-block{height:100px;}
+.swatch-info{padding:.75rem .85rem 1rem;}
+.swatch-name{font-family:var(--sans);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);}
+.swatch-hex{font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.72rem;color:var(--ink-body);margin-top:.2rem;}
+.swatch-usage{font-size:.78rem;line-height:1.5;color:var(--ink-quiet);margin-top:.35rem;}
+.palette-note{font-size:.85rem;line-height:1.8;color:var(--ink-body);max-width:560px;margin:2.5rem 0 0;}
+
+/* ---- 02 TYPOGRAPHY ---- */
+.type-specimens{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:3.5rem;}
+.type-specimen h3{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--shade);margin:0 0 1rem;}
+.type-aa-serif{font-family:var(--serif);font-size:4.5rem;font-weight:300;line-height:1;margin-bottom:.75rem;}
+.type-aa-sans{font-family:var(--sans);font-size:4rem;font-weight:600;line-height:1;margin-bottom:.75rem;letter-spacing:-.02em;}
+.type-name{font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);}
+.type-sub{font-size:.82rem;color:var(--ink-quiet);margin-top:.25rem;line-height:1.6;}
+.type-hierarchy{border-top:1px solid var(--hair);padding-top:2.5rem;}
+.type-row{display:flex;align-items:baseline;gap:2rem;padding:1rem 0;border-bottom:1px solid var(--hair-soft);}
+.type-row-label{
+  font-family:var(--sans);font-size:.6rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--shade);width:180px;min-width:180px;max-width:180px;flex:0 0 180px;line-height:1.6;
+}
+.type-row-label span{display:block;color:rgba(131,133,136,.72);letter-spacing:.04em;margin-top:.2rem;}
+.type-row-sample{flex:1 1 auto;min-width:0;text-align:left;}
+
+.ty-bigtitle{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.05;letter-spacing:-.02em;}
+.ty-headline{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,3.8vw,2.7rem);line-height:1.08;letter-spacing:-.015em;}
+.ty-headlinesm{font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.1;}
+.ty-pagetitle{font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,2.7vw,1.95rem);line-height:1.15;}
+.ty-subtitle{font-family:var(--serif);font-weight:300;font-size:clamp(1.35rem,2.3vw,1.65rem);line-height:1.2;}
+.ty-highlight{font-family:var(--serif);font-weight:400;font-size:1.4rem;line-height:1.25;}
+.ty-highlightsm{font-family:var(--serif);font-weight:400;font-size:1.25rem;line-height:1.3;}
+.ty-summary{font-family:var(--serif);font-weight:300;font-size:1.15rem;line-height:1.45;max-width:44ch;}
+.ty-paralarge{font-family:var(--serif);font-weight:400;font-size:1.02rem;line-height:1.65;max-width:52ch;}
+.ty-para{font-family:var(--serif);font-weight:400;font-size:.92rem;line-height:1.7;max-width:56ch;}
+.ty-footlarge{font-family:var(--sans);font-weight:500;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;}
+.ty-caption{font-family:var(--sans);font-weight:500;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;}
+.ty-foot{font-family:var(--sans);font-weight:500;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;}
+
+/* ---- 03 LOGO ---- */
+.logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.logo-tile{
+  aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;
+  border-radius:4px;padding:2rem;position:relative;overflow:hidden;
+  cursor:pointer;transition:box-shadow .2s,transform .2s;
+}
+.logo-tile img{width:62%;height:auto;}
+a.logo-tile:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(34,34,35,.16);}
+.logo-tile .dl{
+  position:absolute;right:.85rem;bottom:.85rem;
+  font-family:var(--sans);font-size:.5rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  padding:.35rem .55rem;border-radius:2px;opacity:0;transition:opacity .2s;
+}
+a.logo-tile:hover .dl,a.logo-tile:focus-visible .dl{opacity:1;}
+.lt-ink{background:var(--ink);color:var(--cream);}
+.lt-cream{background:var(--band);color:var(--ink);border:1px solid var(--hair);}
+.lt-amber{background:var(--amber);color:var(--ink);}
+.lt-terra{background:var(--terracotta);color:var(--cream);}
+.lt-ink .dl,.lt-terra .dl{background:rgba(253,250,246,.18);color:var(--cream);}
+.lt-cream .dl,.lt-amber .dl{background:rgba(34,34,35,.14);color:var(--ink);}
+.logo-caption{font-family:var(--sans);font-size:.6rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--shade);margin-top:.75rem;}
+.logo-caption .hint{color:var(--deep-gold);}
+.usage-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;}
+.usage-cols h4,.strategy-block h4{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--shade);margin:0 0 .75rem;}
+.usage-cols p{font-size:.88rem;line-height:1.75;color:var(--ink-body);margin:0;max-width:44ch;}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+.rule-card{background:var(--card);border-radius:4px;padding:1.75rem;box-shadow:var(--shadow);}
+.rule-card h4{font-family:var(--sans);font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin:0 0 1rem;}
+.rule-card.do h4{color:var(--deep-gold);}
+.rule-card.dont h4{color:var(--terracotta);}
+.rule-card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+.rule-card li{font-size:.86rem;line-height:1.6;color:var(--ink-body);padding-left:1.1rem;position:relative;}
+.rule-card li::before{position:absolute;left:0;top:0;font-family:var(--sans);font-size:.7rem;font-weight:700;}
+.rule-card.do li::before{content:"✓";color:var(--deep-gold);}
+.rule-card.dont li::before{content:"✕";color:var(--terracotta);}
+
+/* ---- 04 STRATEGY ---- */
+.strategy-hero{background:var(--ink);color:var(--cream);border-radius:4px;padding:3.5rem;margin-bottom:3rem;}
+.strategy-hero .k{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);margin-bottom:1rem;}
+.strategy-hero h2{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:300;line-height:1.15;margin:0;max-width:16ch;}
+.strategy-hero h2 em{font-style:italic;color:var(--amber);}
+.strategy-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.strategy-block.full{grid-column:1/-1;}
+.strategy-block p{font-size:.9rem;line-height:1.8;color:var(--ink-body);margin:0;max-width:52ch;}
+
+/* ---- 05 VOICE ---- */
+.voice-headline{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:300;line-height:1.25;max-width:20ch;margin:0 0 1rem;}
+.voice-headline em{font-style:italic;color:var(--terracotta);}
+.voice-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;}
+.voice-card{background:var(--card);border-radius:4px;padding:1.75rem;box-shadow:var(--shadow);}
+.voice-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:400;margin:0 0 .5rem;}
+.voice-card p{font-size:.86rem;line-height:1.7;color:var(--ink-body);margin:0;}
+
+/* ---- 06 GRIDS ---- */
+.grid-demos{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1.5rem;}
+.grid-demo{background:var(--card);border-radius:4px;box-shadow:var(--shadow);overflow:hidden;}
+.grid-canvas{aspect-ratio:3/4;background:var(--band);position:relative;}
+.grid-canvas i{position:absolute;background:rgba(226,169,81,.30);}
+.grid-canvas i.alt{background:rgba(179,89,61,.22);}
+.grid-meta{padding:.75rem .85rem 1rem;}
+.grid-meta .gt{font-family:var(--serif);font-size:1rem;}
+.grid-meta .gd{font-family:var(--sans);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--shade);margin-top:.25rem;}
+
+/* ---- 07 ICONS ---- */
+.icon-sets{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.icon-set{background:var(--card);border-radius:4px;padding:1.75rem;box-shadow:var(--shadow);}
+.icon-set .sh{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--deep-gold);margin-bottom:1.5rem;}
+.icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.icon-item{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;}
+.icon-item svg{width:32px;height:32px;stroke:var(--deep-gold);stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round;}
+.icon-label{font-family:var(--sans);font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-body);line-height:1.4;}
+
+/* ---- 08 APPLICATIONS ---- */
+.app-block{margin-bottom:4rem;}
+.app-block:last-child{margin-bottom:0;}
+.app-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:.75rem;flex-wrap:wrap;}
+.app-head h3{font-family:var(--serif);font-size:1.4rem;font-weight:400;margin:0;}
+.app-head .src{font-family:var(--sans);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:var(--shade);}
+.app-desc{font-size:.88rem;line-height:1.8;color:var(--ink-body);max-width:600px;margin:0 0 1.75rem;}
+.figure{background:var(--card);border-radius:4px;overflow:hidden;box-shadow:var(--shadow);}
+.figure img{width:100%;height:auto;}
+.figcap{font-family:var(--sans);font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--shade);margin-top:.6rem;}
+.app-row{display:grid;gap:1.25rem;margin-top:1.25rem;}
+.row-3{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));}
+.row-4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+.row-deck{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
+.app-split{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:1.25rem;align-items:start;}
+
+/* ---- FOOTER ---- */
+.footer{background:var(--ink);color:var(--cream);padding:3.5rem 4rem;display:flex;justify-content:space-between;align-items:flex-end;gap:2rem;flex-wrap:wrap;}
+.footer svg{width:150px;height:auto;color:var(--cream);}
+.footer .fnote{font-family:var(--sans);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(253,250,246,.42);line-height:1.9;text-align:right;}
+.footer .fnote strong{color:var(--gold);font-weight:600;}
+
+/* ============ MACHINE VIEW ============ */
+.machine{display:none;background:#1c1c1d;color:#d7d2c8;padding:4rem;min-height:100vh;}
+body.machine-on .machine{display:block;}
+body.machine-on .human{display:none;}
+.machine .mhead{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:1.75rem;margin-bottom:2rem;}
+.machine .k{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--amber);}
+.machine h2{font-family:var(--serif);font-size:1.8rem;font-weight:300;margin:.6rem 0 0;color:var(--cream);}
+.machine .mhead p{font-size:.88rem;line-height:1.7;color:#b4afa4;max-width:56ch;margin:.6rem 0 0;}
+.dlbtn{font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--amber);color:var(--ink);border:none;padding:.8rem 1.2rem;border-radius:4px;cursor:pointer;}
+.machine pre{background:#161617;border:1px solid rgba(255,255,255,.1);border-radius:4px;padding:1.6rem;overflow-x:auto;white-space:pre-wrap;font-family:ui-monospace,'SF Mono',Menlo,monospace;font-size:.72rem;line-height:1.75;color:#cfc9bd;}
+.back-human{margin-top:1.75rem;}
+
+/* ============ RESPONSIVE ============ */
+.menu-btn{display:none;}
+@media (max-width:900px){
+  body{display:block;}
+  .sidebar{
+    position:fixed;top:0;left:0;bottom:0;z-index:60;height:100vh;width:250px;min-width:250px;
+    transform:translateX(-100%);transition:transform .25s;
+  }
+  body.nav-open .sidebar{transform:translateX(0);box-shadow:0 0 0 100vmax rgba(0,0,0,.45);}
+  .menu-btn{
+    display:inline-flex;position:fixed;top:1rem;left:1rem;z-index:70;
+    width:42px;height:42px;align-items:center;justify-content:center;cursor:pointer;
+    background:var(--ink);border:1px solid rgba(253,250,246,.18);border-radius:4px;
+  }
+  .menu-btn svg{width:18px;height:18px;stroke:var(--cream);stroke-width:1.6;fill:none;}
+  .hero{padding:5.5rem 1.75rem 3.5rem;}
+  .section{padding:3.5rem 1.75rem;}
+  .footer{padding:3rem 1.75rem;}
+  .machine{padding:2.5rem 1.75rem;}
+  .type-specimens,.logo-grid,.usage-cols,.rules,.strategy-cols,.voice-grid,.icon-sets{grid-template-columns:1fr;}
+  .app-split{grid-template-columns:1fr;}
+  .strategy-hero{padding:2.25rem;}
+  .type-row{flex-direction:column;gap:.5rem;}
+  .type-row-label{width:auto;min-width:0;max-width:none;flex:none;}
+  .footer .fnote{text-align:left;}
+}
+</style>
+
+<!--LOGO_DEFS-->
+
+<button class="menu-btn" id="menuBtn" aria-label="Open contents menu">
+  <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+</button>
+
+<aside class="sidebar" id="sidebar">
+  <svg class="sidebar-logo" viewBox="0 0 291 103" role="img" aria-label="Sightwell Studios"><use href="#sw-logo"/></svg>
+  <nav id="nav">
+    <a href="#colors">01 — Colors</a>
+    <a href="#typography">02 — Typography</a>
+    <a href="#logo">03 — Logo &amp; Usage</a>
+    <a href="#strategy">04 — Brand Strategy</a>
+    <a href="#voice">05 — Voice &amp; Tone</a>
+    <a href="#grids">06 — Grids</a>
+    <a href="#icons">07 — Icons</a>
+    <a href="#applications">08 — Applications</a>
+  </nav>
+  <div class="sidebar-foot">Brand Guideline · 2026<br>Internal use only</div>
+</aside>
+
+<div class="content">
+<div class="human">
+
+  <section class="hero" id="top">
+    <div class="hero-label">Sightwell Studios — Brand Guideline</div>
+    <h1>We illuminate what others <em>miss.</em></h1>
+    <p>This document defines the visual and verbal identity of Sightwell Studios — the colors, typography, logo usage, voice, and principles that make the brand recognizable and consistent across every touchpoint.</p>
+    <div class="viewas">
+      <span class="vl">View as</span>
+      <div class="toggle" role="tablist" aria-label="View mode">
+        <button id="humanBtn" class="on" role="tab" aria-selected="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+          Human
+        </button>
+        <button id="machineBtn" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="14" rx="2"/><path d="M8 9h8M8 13h5"/></svg>
+          Machine <span class="md">↓ Skill.md</span>
+        </button>
+      </div>
+    </div>
+    <p class="hero-note">Download the Machine version and drop it into your Claude skills environment to apply Sightwell brand guidelines to any output.</p>
+    <div class="hero-divider"></div>
+  </section>
+
+  <!-- 01 COLORS -->
+  <section class="section" id="colors">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Colors</h2>
+    <p class="section-desc">The palette is grounded in restraint. Charcoal ink and warm cream form the foundation; amber provides the accent that earns attention. Supporting tones — gold, terracotta, and shade — expand the palette without diluting it.</p>
+
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#222223"></div>
+        <div class="swatch-info"><div class="swatch-name">Ink</div><div class="swatch-hex">#222223</div><div class="swatch-usage">Backgrounds, primary text</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#FDFAF6;border-bottom:1px solid var(--hair)"></div>
+        <div class="swatch-info"><div class="swatch-name">Cream</div><div class="swatch-hex">#FDFAF6</div><div class="swatch-usage">Page backgrounds, reversed text</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#E2A951"></div>
+        <div class="swatch-info"><div class="swatch-name">Amber</div><div class="swatch-hex">#E2A951</div><div class="swatch-usage">Accent, links, highlights</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#D9B97E"></div>
+        <div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-hex">#D9B97E</div><div class="swatch-usage">Supporting warm tone</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#CBA764"></div>
+        <div class="swatch-info"><div class="swatch-name">Deep Gold</div><div class="swatch-hex">#CBA764</div><div class="swatch-usage">Labels, section markers</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#E8D6B2"></div>
+        <div class="swatch-info"><div class="swatch-name">Pale Gold</div><div class="swatch-hex">#E8D6B2</div><div class="swatch-usage">Soft fills, quiet surfaces</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#B3593D"></div>
+        <div class="swatch-info"><div class="swatch-name">Terracotta</div><div class="swatch-hex">#B3593D</div><div class="swatch-usage">Emphasis, applications</div></div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#838588"></div>
+        <div class="swatch-info"><div class="swatch-name">Shade</div><div class="swatch-hex">#838588</div><div class="swatch-usage">Captions, secondary text</div></div>
+      </div>
+    </div>
+
+    <p class="palette-note">Match these values exactly. Keep large amounts of cream or ink space at all times, and let amber earn attention by staying scarce — never use amber or terracotta as a background for body text.</p>
+  </section>
+
+  <!-- 02 TYPOGRAPHY -->
+  <section class="section" id="typography">
+    <div class="section-number">02</div>
+    <h2 class="section-title">Typography</h2>
+    <p class="section-desc">Two typefaces. Freight Text Pro brings warmth and authority to headlines and body copy. Pragmatica Extended provides clarity and structure in labels, navigation, and UI elements.</p>
+
+    <div class="type-specimens">
+      <div class="type-specimen">
+        <h3>Primary — Serif</h3>
+        <div class="type-aa-serif">Aa</div>
+        <div class="type-name">Freight Text Pro</div>
+        <div class="type-sub">Light, Regular, Italic — Adobe Fonts. Ligatures on for display and body.</div>
+      </div>
+      <div class="type-specimen">
+        <h3>Secondary — Sans</h3>
+        <div class="type-aa-sans">Aa</div>
+        <div class="type-name">Pragmatica Extended</div>
+        <div class="type-sub">Light, Regular, Bold — Adobe Fonts. Tracked wide, often uppercase.</div>
+      </div>
+    </div>
+
+    <div class="type-hierarchy">
+      <p class="sub-label">Type hierarchy</p>
+      <div class="type-row"><div class="type-row-label">Big Title<span>Freight Text Light · 144 / 170</span></div><div class="type-row-sample ty-bigtitle">Defiant clarity</div></div>
+      <div class="type-row"><div class="type-row-label">Headline<span>Freight Text Light · 107 / 130</span></div><div class="type-row-sample ty-headline">See what others overlook.</div></div>
+      <div class="type-row"><div class="type-row-label">Headline Small<span>Freight Text Light · 90 / 110</span></div><div class="type-row-sample ty-headlinesm">The high point of sight</div></div>
+      <div class="type-row"><div class="type-row-label">Page Title<span>Freight Text Light · 72 / 72</span></div><div class="type-row-sample ty-pagetitle">Strategy that moves people</div></div>
+      <div class="type-row"><div class="type-row-label">Subtitle<span>Freight Text Light · 58 / 70</span></div><div class="type-row-sample ty-subtitle">Clarity, coherence and momentum</div></div>
+      <div class="type-row"><div class="type-row-label">Highlight<span>Freight Text Light · 48 / 60</span></div><div class="type-row-sample ty-highlight">Say the one true thing</div></div>
+      <div class="type-row"><div class="type-row-label">Highlight Small<span>Freight Text Light · 44 / 56</span></div><div class="type-row-sample ty-highlightsm">Illuminate the overlooked</div></div>
+      <div class="type-row"><div class="type-row-label">Summary<span>Freight Text Light · 38 / 46</span></div><div class="type-row-sample ty-summary">Strategy that moves people — not slides that sit in a drawer.</div></div>
+      <div class="type-row"><div class="type-row-label">Paragraph Large<span>Freight Text Book · 32 / 45</span></div><div class="type-row-sample ty-paralarge">We help organizations see what others overlook and turn it into clarity, coherence and momentum.</div></div>
+      <div class="type-row"><div class="type-row-label">Paragraph<span>Freight Text Book · 24 / 29</span></div><div class="type-row-sample ty-para">Precision over decoration. Short words, concrete nouns, active verbs — one dominant idea per page.</div></div>
+      <div class="type-row"><div class="type-row-label">Footnotes Large<span>Pragmatica Extended Medium · 20 / 30</span></div><div class="type-row-sample ty-footlarge">Brand Guideline · Sightwell Studios</div></div>
+      <div class="type-row"><div class="type-row-label">Caption<span>Pragmatica Extended Medium · 16 / 20</span></div><div class="type-row-sample ty-caption">Figure — Logo clear space</div></div>
+      <div class="type-row"><div class="type-row-label">Footnotes<span>Pragmatica Extended Medium · 12 / 14</span></div><div class="type-row-sample ty-foot">Section 02 — Typography</div></div>
+    </div>
+  </section>
+
+  <!-- 03 LOGO -->
+  <section class="section" id="logo">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Logo &amp; Usage</h2>
+    <p class="section-desc">The SIGHTWELL mark is the primary identifier. Use it with consistent clear space and only on approved background colors. Never distort, recolor, or place it on competing patterns.</p>
+
+    <div class="logo-grid">
+      <div>
+        <a class="logo-tile lt-ink" href="assets/logo_cream_ember.svg" data-logo="cream-amber" download="sightwell-logo-cream-amber.svg" aria-label="Download the primary Sightwell logo — cream and amber, for ink backgrounds (SVG)">
+          <img src="assets/logo_cream_ember.svg" alt="Sightwell Studios logo in cream with an amber rule" width="291" height="103">
+          <span class="dl">↓ SVG</span>
+        </a>
+        <div class="logo-caption">Primary — cream + amber on ink · <span class="hint">click to download</span></div>
+      </div>
+      <div>
+        <a class="logo-tile lt-cream" href="assets/logo_ink_ember.svg" data-logo="ink-amber" download="sightwell-logo-ink-amber.svg" aria-label="Download the reversed Sightwell logo — ink and amber, for cream backgrounds (SVG)">
+          <img src="assets/logo_ink_ember.svg" alt="Sightwell Studios logo in ink with an amber rule" width="291" height="103">
+          <span class="dl">↓ SVG</span>
+        </a>
+        <div class="logo-caption">Reversed — ink + amber on cream · <span class="hint">click to download</span></div>
+      </div>
+      <div>
+        <a class="logo-tile lt-amber" href="assets/logo_all%20ink.svg" data-logo="all-ink" download="sightwell-logo-all-ink.svg" aria-label="Download the single-color Sightwell logo in ink, for brand color backgrounds (SVG)">
+          <img src="assets/logo_all%20ink.svg" alt="Sightwell Studios logo entirely in ink" width="291" height="103">
+          <span class="dl">↓ SVG</span>
+        </a>
+        <div class="logo-caption">Accent — all ink on amber · <span class="hint">click to download</span></div>
+      </div>
+      <div>
+        <a class="logo-tile lt-terra" href="assets/logo_all%20cream.svg" data-logo="all-cream" download="sightwell-logo-all-cream.svg" aria-label="Download the single-color Sightwell logo in cream, for brand color backgrounds (SVG)">
+          <img src="assets/logo_all%20cream.svg" alt="Sightwell Studios logo entirely in cream" width="291" height="103">
+          <span class="dl">↓ SVG</span>
+        </a>
+        <div class="logo-caption">Warm — all cream on terracotta · <span class="hint">click to download</span></div>
+      </div>
+    </div>
+
+    <div class="usage-cols">
+      <div>
+        <h4>Clear space</h4>
+        <p>Hold a margin of clear space around the lockup equal to the cap-height of SIGHTWELL on every side. Nothing — type, image or edge — enters that zone.</p>
+      </div>
+      <div>
+        <h4>Minimum size</h4>
+        <p>Never render the full lockup below 120px wide on screen. Below that, the wordmark may stand alone with the gold rule removed.</p>
+      </div>
+    </div>
+
+    <div class="rules">
+      <div class="rule-card do">
+        <h4>Do</h4>
+        <ul>
+          <li>Use the primary cream + amber lockup on ink wherever possible.</li>
+          <li>Reverse to ink + amber on cream when a light ground is required.</li>
+          <li>Use the all-ink or all-cream lockup on brand color grounds.</li>
+          <li>Keep the wordmark, gold rule and STUDIOS line locked together.</li>
+        </ul>
+      </div>
+      <div class="rule-card dont">
+        <h4>Don't</h4>
+        <ul>
+          <li>Recolor the lockup outside the approved palette.</li>
+          <li>Stretch, rotate, condense or re-space the mark.</li>
+          <li>Separate STUDIOS or the gold rule from the wordmark.</li>
+          <li>Place it on busy imagery or low-contrast grounds.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 STRATEGY -->
+  <section class="section" id="strategy">
+    <div class="section-number">04</div>
+    <h2 class="section-title">Brand Strategy</h2>
+    <p class="section-desc">Sightwell Studios helps people and organizations see what they've been missing — and act on it. The brand stands for clear-eyed thinking, defiance of the default, and progress that is earned through visibility.</p>
+
+    <div class="strategy-hero">
+      <div class="k">The core conviction</div>
+      <h2>We illuminate <em>what others miss.</em></h2>
+    </div>
+
+    <div class="strategy-cols">
+      <div class="strategy-block">
+        <h4>The balance of light</h4>
+        <p>We use the metaphor of light deliberately — not the dramatic flash of revelation, but the steady, calibrated illumination that reveals what was always there. Our work is precise and purposeful.</p>
+      </div>
+      <div class="strategy-block">
+        <h4>Defying the default</h4>
+        <p>Progress requires first seeing and then defying the default setting that's keeping you stuck. The systems around us are built to keep you moving toward someone else's plan. We believe in another way.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 VOICE -->
+  <section class="section" id="voice">
+    <div class="section-number">05</div>
+    <h2 class="section-title">Voice &amp; Tone</h2>
+    <p class="section-desc">Voice is consistent — it's who we are. Tone adapts to context. We are direct without being blunt, warm without being soft, and confident without being loud.</p>
+
+    <p class="voice-headline">We say the one thing <em>plainly enough to act on.</em></p>
+
+    <div class="voice-grid">
+      <div class="voice-card">
+        <h4>Clear, not clever</h4>
+        <p>We don't hide meaning behind language. Every sentence earns its place. If it doesn't move the reader forward, it doesn't belong.</p>
+      </div>
+      <div class="voice-card">
+        <h4>Confident, not loud</h4>
+        <p>We trust the work to speak. Our voice doesn't need to shout — it simply states what it knows, precisely and without apology.</p>
+      </div>
+      <div class="voice-card">
+        <h4>Purposeful empathy</h4>
+        <p>We understand what keeps people stuck. We speak to that honestly, without condescension. We illuminate, we don't lecture.</p>
+      </div>
+      <div class="voice-card">
+        <h4>Permission to act</h4>
+        <p>The goal of every communication is momentum. We want the reader to feel capable and motivated — not just informed.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 GRIDS -->
+  <section class="section" id="grids">
+    <div class="section-number">06</div>
+    <h2 class="section-title">Grids</h2>
+    <p class="section-desc">Layouts sit on a consistent grid so spacing and alignment stay disciplined across every format. Five structures cover most needs — manuscript, columns, modular, split, and hybrid. Pick one grid per layout and hold to it.</p>
+
+    <div class="grid-demos">
+      <div class="grid-demo">
+        <div class="grid-canvas"><i style="left:20%;top:12%;right:20%;bottom:12%"></i></div>
+        <div class="grid-meta"><div class="gt">Manuscript</div><div class="gd">Single block</div></div>
+      </div>
+      <div class="grid-demo">
+        <div class="grid-canvas">
+          <i style="left:12%;top:10%;width:22%;bottom:10%"></i>
+          <i style="left:39%;top:10%;width:22%;bottom:10%"></i>
+          <i style="left:66%;top:10%;width:22%;bottom:10%"></i>
+        </div>
+        <div class="grid-meta"><div class="gt">Columns</div><div class="gd">Even measures</div></div>
+      </div>
+      <div class="grid-demo">
+        <div class="grid-canvas">
+          <i style="left:12%;top:10%;width:34%;height:36%"></i>
+          <i style="left:54%;top:10%;width:34%;height:36%"></i>
+          <i style="left:12%;top:54%;width:34%;height:36%"></i>
+          <i style="left:54%;top:54%;width:34%;height:36%"></i>
+        </div>
+        <div class="grid-meta"><div class="gt">Modular</div><div class="gd">Grid of cells</div></div>
+      </div>
+      <div class="grid-demo">
+        <div class="grid-canvas">
+          <i style="left:12%;top:10%;width:36%;bottom:10%"></i>
+          <i class="alt" style="left:54%;top:10%;width:34%;bottom:10%"></i>
+        </div>
+        <div class="grid-meta"><div class="gt">Split</div><div class="gd">Two-part field</div></div>
+      </div>
+      <div class="grid-demo">
+        <div class="grid-canvas">
+          <i style="left:12%;top:10%;width:76%;height:30%"></i>
+          <i style="left:12%;top:48%;width:36%;bottom:10%"></i>
+          <i class="alt" style="left:54%;top:48%;width:34%;bottom:10%"></i>
+        </div>
+        <div class="grid-meta"><div class="gt">Hybrid</div><div class="gd">Mixed rhythm</div></div>
+      </div>
+    </div>
+    <p class="palette-note">Spacing follows a fixed step — 32, 45, 62, 94, 112, 144 — so every layout breathes to the same rhythm.</p>
+  </section>
+
+  <!-- 07 ICONS -->
+  <section class="section" id="icons">
+    <div class="section-number">07</div>
+    <h2 class="section-title">Icons</h2>
+    <p class="section-desc">Icons use a consistent 1.5px stroke weight at 32×32px. They are geometric, minimal, and purposeful — never decorative. Use sparingly and only when they clarify, not when they decorate.</p>
+
+    <div class="icon-sets">
+      <div class="icon-set">
+        <div class="sh">How we see</div>
+        <div class="icon-grid">
+          <div class="icon-item"><svg viewBox="0 0 40 40"><path d="M4 20s6-10 16-10 16 10 16 10-6 10-16 10S4 20 4 20Z"/><circle cx="20" cy="20" r="5"/></svg><div class="icon-label">See clearly</div></div>
+          <div class="icon-item"><svg viewBox="0 0 40 40"><circle cx="12" cy="12" r="5"/><circle cx="28" cy="28" r="5"/><path d="M16 16l8 8"/></svg><div class="icon-label">Coherence</div></div>
+          <div class="icon-item"><svg viewBox="0 0 40 40"><path d="M20 4v10M20 26v10M4 20h10M26 20h10"/><circle cx="20" cy="20" r="6"/></svg><div class="icon-label">Activate</div></div>
+        </div>
+      </div>
+      <div class="icon-set">
+        <div class="sh">What we believe</div>
+        <div class="icon-grid">
+          <div class="icon-item"><svg viewBox="0 0 40 40"><path d="M20 5l13 7v9c0 8-6 12-13 14-7-2-13-6-13-14v-9Z"/></svg><div class="icon-label">Conviction</div></div>
+          <div class="icon-item"><svg viewBox="0 0 40 40"><path d="M8 30V14l12-8 12 8v16"/><path d="M8 30h24"/><path d="M20 30v-8"/></svg><div class="icon-label">Structure</div></div>
+          <div class="icon-item"><svg viewBox="0 0 40 40"><path d="M20 4v32M12 12l8-8 8 8M12 28l8 8 8-8"/></svg><div class="icon-label">Momentum</div></div>
+        </div>
+      </div>
+      <div class="icon-set">
+        <div class="sh">Who we serve</div>
+        <div class="icon-grid">
+          <div class="icon-item"><svg viewBox="0 0 40 40"><circle cx="20" cy="14" r="6"/><path d="M8 34c0-7 5-11 12-11s12 4 12 11"/></svg><div class="icon-label">People-centric</div></div>
+          <div class="icon-item"><svg viewBox="0 0 40 40"><circle cx="10" cy="20" r="4"/><circle cx="30" cy="20" r="4"/><path d="M14 20h12"/></svg><div class="icon-label">Connect</div></div>
+          <div class="icon-item"><svg viewBox="0 0 40 40"><path d="M6 30c8 0 8-16 16-16s8 12 12 12"/><circle cx="6" cy="30" r="2.4"/></svg><div class="icon-label">Defiant leaders</div></div>
+        </div>
+      </div>
+      <div class="icon-set">
+        <div class="sh">What we do</div>
+        <div class="icon-grid">
+          <div class="icon-item"><svg viewBox="0 0 40 40"><rect x="8" y="8" width="24" height="24" rx="2"/><path d="M8 16h24M16 8v24"/></svg><div class="icon-label">Prototype</div></div>
+          <div class="icon-item"><svg viewBox="0 0 40 40"><circle cx="20" cy="16" r="8"/><path d="M16 30h8M17 34h6"/></svg><div class="icon-label">Illuminate</div></div>
+          <div class="icon-item"><svg viewBox="0 0 40 40"><path d="M6 20h22M20 12l8 8-8 8"/><path d="M32 8v24"/></svg><div class="icon-label">Move</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 APPLICATIONS -->
+  <section class="section" id="applications">
+    <div class="section-number">08</div>
+    <h2 class="section-title">Applications</h2>
+    <p class="section-desc">The brand system applies consistently across digital and print touchpoints. These examples demonstrate the palette, typography, and logo working together in context.</p>
+
+    <div class="app-block">
+      <div class="app-head"><h3>Website</h3><span class="src">Homepage — desktop</span></div>
+      <p class="app-desc">The website leads with the brand's core promise — "We illuminate what others miss" — set in the serif voice on a charcoal hero. Navigation stays minimal, the amber call-to-action carries the single next step, and generous space keeps the page calm. Shown here as direction, still in progress.</p>
+      <div class="figure"><img src="assets/applications/website-desktop.png" alt="Sightwell Studios homepage on desktop — charcoal hero with the core promise headline and an amber call to action" width="1736" height="1068" loading="lazy"></div>
+      <div class="figcap">sightwellstudios.com — homepage, desktop</div>
+    </div>
+
+    <div class="app-block">
+      <div class="app-head"><h3>Social Media</h3><span class="src">LinkedIn company page &amp; post cards</span></div>
+      <p class="app-desc">On social, one idea carries each post. The profile pairs the mark on charcoal with a clear handle, while post cards alternate charcoal, terracotta and cream to keep the feed varied but on-brand. Lead with a single line in the serif voice and let the statement, not decoration, do the work.</p>
+      <div class="figure"><img src="assets/applications/social-linkedin.png" alt="Sightwell Studios LinkedIn company page with the mark on charcoal and a gold-lit banner" width="1124" height="580" loading="lazy"></div>
+      <div class="figcap">LinkedIn company page</div>
+      <div class="app-row row-3">
+        <div>
+          <div class="figure"><img src="assets/applications/social-card-insight.png" alt="Charcoal social card reading We illuminate what others miss" width="320" height="320" loading="lazy"></div>
+          <div class="figcap">Insight — charcoal</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/social-card-solution.png" alt="Terracotta social card reading Defy the default setting" width="320" height="320" loading="lazy"></div>
+          <div class="figcap">Solution — terracotta</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/social-card-strategy.png" alt="Cream social card reading Most strategies don't actually work" width="320" height="320" loading="lazy"></div>
+          <div class="figcap">Strategy — cream</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-block">
+      <div class="app-head"><h3>Newsletter</h3><span class="src">Favicon, header banner &amp; article covers</span></div>
+      <p class="app-desc">The newsletter extends the identity into the inbox. A favicon and header banner anchor recognition, while article covers use the charcoal-and-amber system with editorial headlines. Keep layouts simple and text-led so every issue feels unmistakably Sightwell — considered, warm and clear.</p>
+      <div class="app-split">
+        <div>
+          <div class="figure"><img src="assets/applications/newsletter-favicon.png" alt="Sightwell favicon — the S mark on charcoal with a gold rule" width="239" height="240" loading="lazy"></div>
+          <div class="figcap">Favicon · avatar</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/newsletter-banner.png" alt="Newsletter header banner — Sightwell Studios wordmark on charcoal with warm gold light" width="1344" height="256" loading="lazy"></div>
+          <div class="figcap">Newsletter header banner</div>
+        </div>
+      </div>
+      <div class="app-row row-3">
+        <div>
+          <div class="figure"><img src="assets/applications/newsletter-cover-light.png" alt="Light article cover reading No Longer in the Room" width="600" height="600" loading="lazy"></div>
+          <div class="figcap">Article cover — light</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/newsletter-cover-dark.png" alt="Dark article cover reading We Mistake What's Visible for What's True" width="600" height="600" loading="lazy"></div>
+          <div class="figcap">Article cover — dark</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/newsletter-cover-image.png" alt="Photographic article cover reading Meaning is the variable, AI is the accelerant" width="600" height="600" loading="lazy"></div>
+          <div class="figcap">Article cover — image</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-block">
+      <div class="app-head"><h3>Slide Deck</h3><span class="src">Statement &amp; working slides</span></div>
+      <p class="app-desc">The slide deck is where Sightwell makes its case. Built on the grid and type hierarchy, decks move between charcoal statement slides and cream working slides, using amber to mark emphasis. Keep one idea per slide and let the serif headlines carry the argument — clarity over clutter.</p>
+      <div class="app-row row-deck" style="margin-top:0">
+        <div>
+          <div class="figure"><img src="assets/applications/deck-statement-illuminate.png" alt="Charcoal statement slide reading We illuminate what others miss" width="960" height="540" loading="lazy"></div>
+          <div class="figcap">Statement — charcoal</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/deck-statement-moves-people.png" alt="Gold statement slide reading We create strategy that moves people" width="960" height="540" loading="lazy"></div>
+          <div class="figcap">Statement — gold</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/deck-statement-thermostats.png" alt="Charcoal statement slide about strategies and thermostats" width="960" height="540" loading="lazy"></div>
+          <div class="figcap">Statement — charcoal</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/deck-working-result-familiar.png" alt="Cream working slide titled The Result is Familiar with a six-cell icon grid" width="960" height="540" loading="lazy"></div>
+          <div class="figcap">Working slide — modular grid</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/deck-working-how-we-see.png" alt="Cream working slide titled How We See the World with four columns" width="960" height="540" loading="lazy"></div>
+          <div class="figcap">Working slide — columns</div>
+        </div>
+        <div>
+          <div class="figure"><img src="assets/applications/deck-working-defiant-leaders.png" alt="Gold working slide titled We Need More Defiant Leaders" width="960" height="540" loading="lazy"></div>
+          <div class="figcap">Working slide — gold</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <svg viewBox="0 0 291 103" role="img" aria-label="Sightwell Studios"><use href="#sw-logo"/></svg>
+    <div class="fnote"><strong>Brand Guideline · 2026</strong><br>Sightwell Studios · Strategy for defiant leaders · Internal use only</div>
+  </footer>
+</div>
+
+<!-- MACHINE VIEW -->
+<div class="machine" id="machine">
+  <div class="mhead">
+    <div>
+      <div class="k">Machine version</div>
+      <h2>Sightwell brand, as a skill</h2>
+      <p>The full guideline as plain Markdown. Download <code>SKILL.md</code> and drop it into your Claude skills environment to apply Sightwell's voice, color and type to any output.</p>
+    </div>
+    <button class="dlbtn" id="dlBtn">↓ Download SKILL.md</button>
+  </div>
+  <pre id="skillText"></pre>
+  <div class="back-human"><button class="dlbtn" id="backHuman" style="background:transparent;color:#d7d2c8;border:1px solid rgba(255,255,255,.2)">← Back to human view</button></div>
+</div>
+</div>
+
+<!--LOGO_FILES-->
+
+<script id="skillmd" type="text/plain">---
+name: sightwell-brand
+description: Apply Sightwell Studios' brand voice, color and typography to any written or designed output.
+---
+
+# Sightwell Studios — Brand Guideline (v2026)
+
+Sightwell Studios helps people and organizations see what they've been missing — and
+act on it. The brand stands for clear-eyed thinking, defiance of the default, and
+progress that is earned through visibility.
+
+Core conviction: **We illuminate what others miss.**
+
+## Brand strategy
+- The balance of light — we use the metaphor of light deliberately: not the dramatic
+  flash of revelation, but the steady, calibrated illumination that reveals what was
+  always there. Our work is precise and purposeful.
+- Defying the default — progress requires first seeing and then defying the default
+  setting that's keeping you stuck.
+
+## Voice and tone
+Voice is consistent — it's who we are. Tone adapts to context. We are direct without
+being blunt, warm without being soft, and confident without being loud.
+
+1. Clear, not clever — we don't hide meaning behind language. Every sentence earns its place.
+2. Confident, not loud — we trust the work to speak; state what you know without apology.
+3. Purposeful empathy — speak honestly to what keeps people stuck, without condescension.
+4. Permission to act — the goal of every communication is momentum, not just information.
+
+## Color
+- Ink        #222223   backgrounds, primary text
+- Cream      #FDFAF6   page backgrounds, reversed text
+- Amber      #E2A951   accent, links, highlights
+- Gold       #D9B97E   supporting warm tone
+- Deep Gold  #CBA764   labels, section markers
+- Pale Gold  #E8D6B2   soft fills, quiet surfaces
+- Terracotta #B3593D   emphasis, applications
+- Shade      #838588   captions, secondary text
+
+Keep large amounts of cream or ink space at all times; let amber earn attention by
+staying scarce. Never use amber or terracotta as a background for body text.
+
+## Typography
+- Freight Text Pro — serif — headlines and body copy; ligatures enabled.
+- Pragmatica Extended — sans — labels, navigation, captions and UI; tracked wide, often caps.
+
+Hierarchy (size / line-height, pt):
+- Big Title        144 / 170   Freight Text Light
+- Headline         107 / 130   Freight Text Light
+- Headline Small    90 / 110   Freight Text Light
+- Page Title        72 / 72    Freight Text Light
+- Subtitle          58 / 70    Freight Text Light
+- Highlight         48 / 60    Freight Text Light
+- Highlight Small   44 / 56    Freight Text Light
+- Summary           38 / 46    Freight Text Light
+- Paragraph Large   32 / 45    Freight Text Book
+- Paragraph         24 / 29    Freight Text Book
+- Footnotes Large   20 / 30    Pragmatica Extended Medium
+- Caption           16 / 20    Pragmatica Extended Medium
+- Footnotes         12 / 14    Pragmatica Extended Medium
+
+Spacing step: 32 · 45 · 62 · 94 · 112 · 144.
+
+## Logo
+The SIGHTWELL mark is the primary identifier: wordmark + fine gold rule + STUDIOS
+tracked beneath. Use it with consistent clear space and only on approved background
+colors. Never distort, recolor, or place it on competing patterns.
+- Primary: cream + amber on ink.  - Reversed: ink + amber on cream.
+- On color grounds: all-ink or all-cream.
+
+## Grids
+Five structures — manuscript, columns, modular, split, hybrid. One grid per layout.
+
+## Icons
+Consistent 1.5px stroke at 32x32px. Geometric, minimal, purposeful — never decorative.
+
+## Applications
+Website, social media, newsletter and slide deck — the same logic everywhere: charcoal
+and cream do the work, amber signals emphasis, and the serif voice stays editorial.
+
+Sightwell Studios · Brand Guideline · 2026 · Internal use only
+</script>
+
+<script>
+(function(){
+  var body=document.body;
+  var humanBtn=document.getElementById('humanBtn');
+  var machineBtn=document.getElementById('machineBtn');
+  var skill=document.getElementById('skillmd').textContent.replace(/^\s+/,'');
+  document.getElementById('skillText').textContent=skill;
+
+  function toMachine(){body.classList.add('machine-on');machineBtn.classList.add('on');humanBtn.classList.remove('on');machineBtn.setAttribute('aria-selected','true');humanBtn.setAttribute('aria-selected','false');window.scrollTo(0,0);}
+  function toHuman(){body.classList.remove('machine-on');humanBtn.classList.add('on');machineBtn.classList.remove('on');humanBtn.setAttribute('aria-selected','true');machineBtn.setAttribute('aria-selected','false');}
+  machineBtn.addEventListener('click',toMachine);
+  humanBtn.addEventListener('click',toHuman);
+  document.getElementById('backHuman').addEventListener('click',toHuman);
+
+  document.getElementById('dlBtn').addEventListener('click',function(){
+    var blob=new Blob([skill],{type:'text/markdown'});
+    var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SKILL.md';
+    document.body.appendChild(a);a.click();a.remove();
+  });
+
+  // Logo downloads: build the file from embedded source so it saves rather than
+  // navigating (the download attribute is ignored on file:// and in sandboxed frames).
+  [].slice.call(document.querySelectorAll('a.logo-tile[data-logo]')).forEach(function(a){
+    a.addEventListener('click',function(e){
+      var src=document.getElementById('logosrc-'+a.getAttribute('data-logo'));
+      if(!src) return;                        // no embedded copy: let the href do its thing
+      e.preventDefault();
+      var blob=new Blob([src.textContent.trim()],{type:'image/svg+xml;charset=utf-8'});
+      var url=URL.createObjectURL(blob);
+      var t=document.createElement('a');
+      t.href=url; t.download=a.getAttribute('download')||'sightwell-logo.svg';
+      document.body.appendChild(t); t.click(); t.remove();
+      setTimeout(function(){URL.revokeObjectURL(url);},1000);
+    });
+  });
+
+  var menuBtn=document.getElementById('menuBtn');
+  menuBtn&&menuBtn.addEventListener('click',function(){body.classList.toggle('nav-open');});
+
+  var links=[].slice.call(document.querySelectorAll('.sidebar nav a'));
+  var map={};links.forEach(function(l){map[l.getAttribute('href').slice(1)]=l;});
+  var ids=Object.keys(map);
+  function spy(){
+    var pos=window.scrollY+window.innerHeight*0.3,cur=null;
+    ids.forEach(function(id){var el=document.getElementById(id);if(el&&el.offsetTop<=pos)cur=id;});
+    links.forEach(function(l){l.classList.remove('active');});
+    if(cur&&map[cur])map[cur].classList.add('active');
+  }
+  window.addEventListener('scroll',spy,{passive:true});window.addEventListener('resize',spy);spy();
+
+  links.forEach(function(l){l.addEventListener('click',function(){body.classList.remove('nav-open');if(body.classList.contains('machine-on'))toHuman();});});
+})();
+</script>

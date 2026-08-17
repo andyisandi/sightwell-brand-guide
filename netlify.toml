@@ -1,0 +1,10 @@
+# Netlify deploys this repo as a static site.
+[build]
+  publish = "."
+  command = ""
+
+# Client review build: ask crawlers not to index. Remove when going public.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

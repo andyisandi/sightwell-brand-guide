@@ -1,0 +1,4 @@
+# Client review build — keep out of search results.
+# Delete this file (and the noindex meta in src/page.html) when going public.
+User-agent: *
+Disallow: /
