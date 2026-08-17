@@ -99,12 +99,15 @@ img{max-width:100%;display:block;}
 .hero{
   color:var(--cream);padding:6rem 4rem 5rem;position:relative;
   background-color:var(--ink);
+  /* Scrim stops are in px, not %, so they stay locked to the text column
+     (max 64px padding + 520px measure = 584px) at every viewport width.
+     Percentage stops slid under the headline around 1000px and failed contrast. */
   background-image:
     linear-gradient(90deg,
-      rgba(34,34,35,.96) 0%,
-      rgba(34,34,35,.88) 32%,
-      rgba(34,34,35,.45) 58%,
-      rgba(34,34,35,0) 88%),
+      rgba(34,34,35,.95) 0px,
+      rgba(34,34,35,.92) 600px,
+      rgba(34,34,35,.45) 800px,
+      rgba(34,34,35,0) 1010px),
     url('assets/header.jpg');
   background-size:cover;
   background-position:center right;
@@ -305,7 +308,13 @@ body.machine-on .human{display:none;}
     background:var(--ink);border:1px solid rgba(253,250,246,.18);border-radius:4px;
   }
   .menu-btn svg{width:18px;height:18px;stroke:var(--cream);stroke-width:1.6;fill:none;}
-  .hero{padding:5.5rem 1.75rem 3.5rem;}
+  .hero{
+    padding:5.5rem 1.75rem 3.5rem;
+    /* Mobile: solid Ink only. `cover` crops the light into the text column at
+       narrow widths, and the photograph reads as noise at this size. */
+    background-image:none;
+    background-color:var(--ink);
+  }
   .section{padding:3.5rem 1.75rem;}
   .footer{padding:3rem 1.75rem;}
   .machine{padding:2.5rem 1.75rem;}
